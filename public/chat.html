@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
+    <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+
+    <script src="./js/chat.js"></script>
+
+    <title>chatUI</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="left-field">
+            <div class="user-info-field">
+                <a href="/index.html" class='exitBtn'>注销</a>
+            </div>
+            <div class="room-info">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<b>房间:&nbsp;</b>
+                <div class="room-name">
+                </div>
+            </div>
+            <div class="user-list-field">
+                <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>当前在线用户:</h2>
+                <ul class='user-list'>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-field">
+            <h2 class="chat-title">聊天室</h2>
+            <div class="msg-container">
+
+                <div class="self-msg">
+                    <div class="self-content">
+                        <img src="./img/11.jpg" alt="sadsa">
+                    </div>
+                    <div class="self-name">12</div>
+                </div>
+            </div>
+            <div class="right-bottom-field">
+                <form id='chat-form'>
+                    <div class="upload-field">
+                        <div>
+                            <i class="fa fa-picture-o" id="img-upload-btn" aria-hidden="true"></i>
+                            <input type="file" id='img-upload' style="display: none;" accept="image/jpeg" name="image">
+                        </div>
+                        <div>
+                            <i class="fa fa-file-video-o" id="video-upload-btn" aria-hidden="true"></i>
+                            <input type="file" id='video-upload' style="display: none;" accept="video/*" name="video">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="msg-input"></textarea>
+                    </div>
+                    <div class="send-field">
+                        <button class='sendBtn'>发送</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
