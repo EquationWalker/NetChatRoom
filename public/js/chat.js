@@ -10,11 +10,27 @@ function App() {
     this.socket = io();
 
     this.getParams();
+    this.checkValid();
 
     this.setRoom();
 
     this.joinRoom().listen();
 }
+
+App.prototype.checkValid = function () {
+    const {name1, room1} = this.getParams();
+    this.socket.emit('login', {
+        name:name1,
+        room:room1
+    });
+    this.socket.on("loginError", e=>{
+        swal('错误', '非法登录,请从登录页面登录!', 'error');
+        $('.confirm').click(() => {
+            $('.exitBtn')[0].click();
+          });
+    })
+
+  }
 
 App.prototype.outPutMessage = function (message) {
     const isMine = this.isMine(message);
@@ -23,8 +39,6 @@ App.prototype.outPutMessage = function (message) {
     if (message.name.length == 1) id = message.name[0];
     else if (message.name.length == 2) id = message.name[1];
     else id = message.name[2];
-
-    console.log(message.name)
     if (isMine) {
         $(".msg-container").append(`<div class="self-msg" style='display:none;'> 
         <div class="self-content"> <pre>${message.content}</pre></div>
@@ -46,9 +60,10 @@ App.prototype.outPutMessage = function (message) {
 App.prototype.recvImg = function (data) {
     //把接受到的消息显示在聊天窗口
     //判断消息是自己或别人的
-    let id = this.userList.findIndex(function (item) {
-        return item.id == data.id;
-    })
+    let id = "";
+    if (data.name.length == 1) id = data.name[0];
+    else if (data.name.length == 2) id = data.name[1];
+    else id = data.name[2];
     if (data.name === this.name) {
         $(".msg-container").append(`<div class="self-msg">
              <div class="self-content">

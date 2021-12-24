@@ -8,7 +8,8 @@ const {
     userLeave,
     getRoomUsers,
     checkVaild,
-    registerUser
+    registerUser,
+    checkUserExit
 } = require("./utils/user");
 
 const app = express();
@@ -23,7 +24,9 @@ io.on("connection", (socket) => {
 
     socket.on("login", data => {
         if (checkVaild(data.name, data.room) == true) {
-            socket.emit('loginOk', "验证成功!");
+            if (checkUserExit(data.name, data.room) == false)
+                socket.emit('loginOk', "验证成功!");
+            else socket.emit('loginError', '该用户已登录!');
         } else {
             socket.emit("loginError", "用户名或房间名不正确!");
         }

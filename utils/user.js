@@ -33,10 +33,15 @@ function checkVaild(name, room) {
         }
     });
 
-    if (res == -1){
-        return false;
-    }
-    return true;  
+    return res != -1; 
+}
+
+function checkUserExit(name, room){
+    const index = users.findIndex(user=>{
+        if (user.room == room && user.name == name) return true;
+    })
+
+    return index != -1;
 }
 
 function registerUser(name1, room1) {
@@ -48,5 +53,6 @@ module.exports = {
     userLeave,
     getRoomUsers,
     checkVaild,
-    registerUser
+    registerUser,
+    checkUserExit
 };
