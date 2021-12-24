@@ -19,6 +19,66 @@
   background: rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
+/*#video-content {
+    position: absolute;
+    z-index: 1000;
+    height:100%;
+    width: 100%;
+    margin-left: 50px;
+    background-color: rgba(0, 0, 0, .4);
+
+    .video-layout {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        border: solid 2px red;
+        
+
+
+        #video-grid {
+            flex-grow: 2;
+            width: 100%;
+            //margin: 100px;
+            border: solid 2px rebeccapurple;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            grid-auto-rows: 300px;
+        }
+
+        #video-control {
+            border: solid 2px green;
+            .closeBtn {
+                text-decoration: none;
+                max-width: 110px;
+                margin-left: 80%;
+                background-color: #E74C3C;
+                border: none;
+                outline: none;
+                height: 49px;
+                border-radius: 49px;
+                color: #fff;
+                font-weight: 450;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1px;
+                margin-bottom: 2px;
+
+                &:hover {
+                    background-color: #C0392B;
+                }
+            }
+        }
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}*/
 .container {
   margin: 85px 100px;
   height: 800px;
@@ -28,19 +88,19 @@
   box-shadow: 10px 10px 5px rgba(100, 100, 100, 0.5);
   background-image: url('../img/bgimg.svg');
   background-size: 100% 100%;
-}
-.container::before {
-  content: "";
-  position: absolute;
-  height: 2000px;
-  width: 2000px;
-  top: -20%;
-  left: 50%;
-  transform: translateY(-45%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
-  transition: 1.8s ease-in-out;
-  border-radius: 50%;
-  z-index: -10;
+  /* &::before {
+        content: "";
+        position: absolute;
+        height: 2000px;
+        width: 2000px;
+        top: -20%;
+        left: 50%;
+        transform: translateY(-45%);
+        background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+        transition: 1.8s ease-in-out;
+        border-radius: 50%;
+        z-index: -10;
+    }*/
 }
 .container .left-field {
   border-right: solid 1px #BDC3C7;
@@ -124,6 +184,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 .container .right-field .chat-title {
   align-self: flex-start;
@@ -144,7 +205,7 @@
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 500;
 }
 .container .right-field .msg-container img {
   padding: 10px;
@@ -158,8 +219,8 @@
   margin-right: 15px;
   margin-top: 10px;
 }
-.container .right-field .msg-container .self-msg [class^='self'] {
-  background-color: rgba(255, 255, 255, 0.88);
+.container .right-field .msg-container .self-msg .self-content {
+  background-color: rgba(189, 195, 199, 0.9);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
 .container .right-field .msg-container .self-msg .self-content {
@@ -171,8 +232,9 @@
   height: 35px;
   width: 35px;
   border-radius: 100% 100%;
-  position: relative;
-  bottom: 40%;
+  background-color: #E67E22;
+  /*position: relative;
+                    bottom: 40%;*/
 }
 .container .right-field .msg-container .other-msg {
   align-self: flex-start;
@@ -181,18 +243,21 @@
   margin-top: 10px;
 }
 .container .right-field .msg-container .other-msg .other-content {
+  background-color: rgba(189, 195, 199, 0.9);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+.container .right-field .msg-container .other-msg .other-content {
   min-width: 100px;
   min-height: 50px;
   margin-left: 5px;
-  background-color: aqua;
 }
 .container .right-field .msg-container .other-msg .other-name {
   height: 35px;
   width: 35px;
   border-radius: 100% 100%;
-  background-color: aqua;
-  position: relative;
-  bottom: 40%;
+  background-color: #9B59B6;
+  /*position: relative;
+                    bottom: 40%;*/
 }
 .container .right-field .msg-container .system-msg {
   align-self: center;

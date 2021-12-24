@@ -45,8 +45,8 @@ io.on("connection", (socket) => {
         userJoin(socket.id, name, room);
         // 通知当前在线用户列表
         socket.emit('roomUsers', getRoomUsers(room));
-        // 向房间其他人广播用户加入消息
-        socket.to(room).emit("addUser", {
+        // 向房间广播用户加入消息
+        io.to(room).emit("addUser", {
             "id": socket.id,
             "name": name,
             "time": moment().utcOffset(8).format("HH:mm:ss")
@@ -76,6 +76,13 @@ io.on("connection", (socket) => {
             io.to(room).emit('roomUsers', getRoomUsers(room));
         });
     });
+
+    /*socket.on("join-video-room", data => {
+        socket.to(data.room).emit('user-video-connected', data.video_id);
+        socket.on('leave-video-room', data => {
+            socket.to(data.room).emit("user-video-disconnected", data.video_id);
+        })
+    });*/
 });
 
 const PORT = process.env.PORT || 9527;
