@@ -1,12 +1,8 @@
-
-
-
 function App() {
     this.rightPanel = document.querySelector(".msg-container");
     this.chatForm = document.getElementById("chat-form");
     this.msgInput = document.getElementById("msg-input");
     this.messageContainer = document.querySelector(".msg-container");
-
     this.userList = [];
     this.name = "";
     this.room = "";
@@ -27,18 +23,20 @@ App.prototype.outPutMessage = function (message) {
         return item.id == message.id;
     })
     if (isMine) {
-        $(".msg-container").append(`<div class="self-msg"> 
+        $(".msg-container").append(`<div class="self-msg" style='display:none;'> 
         <div class="self-content"> <pre>${message.content}</pre></div>
         <div class="self-name"> ${id}</div>
         </div>
     `)
     } else {
-        $(".msg-container").append(`<div class="other-msg"> 
+        $(".msg-container").append(`<div class="other-msg" style='display:none;'> 
         <div class="other-name"> ${id}</div>
         <div class="other-content"> <pre>${message.content}</pre></div>
         </div>
     `)
     }
+
+    $('.msg-container>:last-child').fadeIn('slow');
     return this;
 };
 
@@ -190,7 +188,8 @@ App.prototype.valid = function () {
 };
 
 App.prototype.scroll = function () {
-    this.rightPanel.scrollTop = this.messageContainer.scrollHeight;
+    let scrollHeight = $('.msg-container').prop("scrollHeight");
+    $(".msg-container").animate({scrollTop:scrollHeight}, 400);
     return this;
 };
 

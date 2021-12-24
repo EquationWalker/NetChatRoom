@@ -57,9 +57,10 @@
         display: flex;
         flex-direction: column;
         max-height: 100%;
+
         .exitBtn {
-           text-decoration: none;
-           
+            text-decoration: none;
+
             min-width: 110px;
             background-color: #E74C3C;
             border: none;
@@ -79,9 +80,11 @@
                 background-color: #C0392B;
             }
         }
+
         .user-info-field {
             border-bottom: solid 1px#BDC3C7;
         }
+
         .room-info {
             border-bottom: solid 1px#BDC3C7;
             display: flex;
@@ -89,15 +92,17 @@
             align-items: center;
             padding-bottom: 10px;
             padding-top: 10px;
+
             div {
                 font-size: 15px;
                 font-weight: 700;
             }
         }
 
-        .user-list-field{
+        .user-list-field {
             flex-grow: 1;
             max-height: 81%;
+            overflow-y: auto;
 
             h2 {
                 margin-top: 0.45rem;
@@ -107,14 +112,14 @@
             }
 
             ul {
-                /*display: flex;
-                flex-direction: column;*/
                 max-height: 100%;
-                
-                overflow-y: scroll;
+                overflow: hidden;
+                overflow: hidden;
+
                 &:hover li {
                     opacity: 0.2;
                 }
+
                 .li-style {
                     list-style: none;
                     padding: 10px;
@@ -124,6 +129,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
                     &:hover {
                         transform: scale(1.1);
                         z-index: 100;
@@ -156,7 +162,8 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            overflow-y: scroll;
+            overflow-y: auto;
+
             * {
                 border-radius: 15px 15px;
                 display: flex;
@@ -166,11 +173,11 @@
                 font-weight: 200;
             }
 
-            img{
+            img {
                 padding: 10px;
                 max-width: 200px;
                 max-height: 200px;
-                
+
                 background-color: #fff;
             }
 
@@ -179,17 +186,22 @@
                 padding: 5px;
                 margin-right: 15px;
                 margin-top: 10px;
-                .self-content{
+
+                [class^='self'] {
+                    background-color: rgba(255, 255, 255, .88);
+                    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+                }
+
+                .self-content {
                     min-width: 100px;
                     min-height: 50px;
                     margin-right: 5px;
-                    background-color: aqua;
                 }
-                .self-name{
+
+                .self-name {
                     height: 35px;
                     width: 35px;
                     border-radius: 100% 100%;
-                    background-color: aqua;
                     position: relative;
                     bottom: 40%;
                 }
@@ -200,13 +212,15 @@
                 padding: 5px;
                 margin-left: 15px;
                 margin-top: 10px;
-                .other-content{
+
+                .other-content {
                     min-width: 100px;
                     min-height: 50px;
                     margin-left: 5px;
                     background-color: aqua;
                 }
-                .other-name{
+
+                .other-name {
                     height: 35px;
                     width: 35px;
                     border-radius: 100% 100%;
@@ -224,7 +238,8 @@
                 margin-top: 10px;
                 display: flex;
                 flex-direction: column;
-                *{
+
+                * {
                     font-size: 12px;
                     display: flex;
                     justify-content: center;
@@ -247,7 +262,8 @@
                 div {
                     padding-left: 10px;
 
-                    i:hover, i:active{
+                    i:hover,
+                    i:active {
                         background-color: #BDC3C7;
                     }
                 }
@@ -268,6 +284,7 @@
                     line-height: 1.5em;
                     font-size: 25px;
                     font-weight: 100px;
+                    margin-left: 5px;
                 }
             }
 

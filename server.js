@@ -41,16 +41,16 @@ io.on("connection", (socket) => {
         name,
         room
     }) => {
-        // 向房间其他人广播用户加入消息
-        io.to(room).emit("addUser", {
-            "id": socket.id,
-            "name": name,
-            "time": moment().utcOffset(8).format("HH:mm:ss")
-        });
         socket.join(room);
         userJoin(socket.id, name, room);
         // 通知当前在线用户列表
         socket.emit('roomUsers', getRoomUsers(room));
+        // 向房间其他人广播用户加入消息
+        socket.to(room).emit("addUser", {
+            "id": socket.id,
+            "name": name,
+            "time": moment().utcOffset(8).format("HH:mm:ss")
+        });
 
         socket.on("chatMessage", (message) => {
             io.to(room).emit("chatMessage", {

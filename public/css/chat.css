@@ -86,6 +86,7 @@
 .container .left-field .user-list-field {
   flex-grow: 1;
   max-height: 81%;
+  overflow-y: auto;
 }
 .container .left-field .user-list-field h2 {
   margin-top: 0.45rem;
@@ -94,10 +95,8 @@
   font-weight: 700;
 }
 .container .left-field .user-list-field ul {
-  /*display: flex;
-                flex-direction: column;*/
   max-height: 100%;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 .container .left-field .user-list-field ul:hover li {
   opacity: 0.2;
@@ -137,7 +136,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .container .right-field .msg-container * {
   border-radius: 15px 15px;
@@ -159,17 +158,19 @@
   margin-right: 15px;
   margin-top: 10px;
 }
+.container .right-field .msg-container .self-msg [class^='self'] {
+  background-color: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
 .container .right-field .msg-container .self-msg .self-content {
   min-width: 100px;
   min-height: 50px;
   margin-right: 5px;
-  background-color: aqua;
 }
 .container .right-field .msg-container .self-msg .self-name {
   height: 35px;
   width: 35px;
   border-radius: 100% 100%;
-  background-color: aqua;
   position: relative;
   bottom: 40%;
 }
@@ -238,6 +239,7 @@
   line-height: 1.5em;
   font-size: 25px;
   font-weight: 100px;
+  margin-left: 5px;
 }
 .container .right-field .right-bottom-field .send-field {
   display: flex;

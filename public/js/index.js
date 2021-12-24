@@ -10,7 +10,7 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-let socket = io();
+const socket = io();
 $('#login-btn').click(() => {
   socket.emit("login", {
     name: $('#login-name').val(),
@@ -30,7 +30,6 @@ $('#login-btn').click(() => {
 
 $('.sign-up-form').on("submit", e => {
   e.preventDefault();
-  console.log("sadsadas")
   socket.emit("register", {
     name: $('#register-name').val(),
     room: $('#register-room').val(),
