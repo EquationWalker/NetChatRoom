@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
-  <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script  src="https://lib.baomitu.com/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
   <title>欢迎加入!</title>
 </head>
 
@@ -17,8 +21,8 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="chat.html" method="GET" class="sign-in-form">
-          <h2 class="title">加入到聊天</h2>
+        <form action="chat.html" method='GET' class="sign-in-form">
+          <h2 class="title">进入聊天室</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" name='room' id='login-room' placeholder="房间名" />
@@ -27,7 +31,7 @@
             <i class="fas fa-lock"></i>
             <input type="text" name='name' id='login-name' placeholder="用户名" />
           </div>
-          <input type="submit" id='login-btn' value="加入" class="btn solid" />
+          <input type="button" id='login-btn' value="登录" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -45,7 +49,7 @@
           </div>
         </form>
         <form class="sign-up-form">
-          <h2 class="title">加入到聊天</h2>
+          <h2 class="title">加入到聊天室</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" name='room' id='register-room' placeholder="房间名" />
@@ -54,22 +58,22 @@
             <i class="fas fa-lock"></i>
             <input type="text" name="name"' id='register-name' placeholder="用户名" />
           </div>
-          <input type="submit" id=' register-btn' class="btn" value="加入" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+          <input type="submit" id='register-btn' class="btn" value="注册" />
+          <p class="social-text">Or Sign up with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </form>
       </div>
     </div>

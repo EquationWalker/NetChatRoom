@@ -10,11 +10,7 @@
     <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
-
-    <script src="./js/chat.js"></script>
-
     <title>chatUI</title>
 </head>
 
@@ -55,10 +51,13 @@
                             <i class="fa fa-picture-o" id="img-upload-btn" aria-hidden="true"></i>
                             <input type="file" id='img-upload' style="display: none;" accept="image/jpeg" name="image">
                         </div>
-                        <div>
+                        <!--
+                            <div>
                             <i class="fa fa-file-video-o" id="video-upload-btn" aria-hidden="true"></i>
                             <input type="file" id='video-upload' style="display: none;" accept="video/*" name="video">
                         </div>
+                        -->
+
                     </div>
                     <div class="input-field">
                         <textarea id="msg-input"></textarea>
@@ -70,8 +69,7 @@
             </div>
         </div>
     </div>
-
-
+    <script src="./js/chat.js"></script>
 </body>
 
 </html>

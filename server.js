@@ -6,7 +6,9 @@ const moment = require("moment");
 const {
     userJoin,
     userLeave,
-    getRoomUsers
+    getRoomUsers,
+    checkVaild,
+    registerUser
 } = require("./utils/user");
 
 const app = express();
@@ -17,6 +19,23 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 io.on("connection", (socket) => {
+
+
+    socket.on("login", data => {
+        if (checkVaild(data.name, data.room) == true) {
+            socket.emit('loginOk', "验证成功!");
+        } else {
+            socket.emit("loginError", "用户名或房间名不正确!");
+        }
+    })
+    socket.on("register", data => {
+        if (checkVaild(data.name, data.room) == false) {
+            registerUser(data.name, data.room)
+            socket.emit('registerOk', "注册成功,即将跳转到登录界面!");
+        } else {
+            socket.emit("registerError", "账号已经存在,请登录!");
+        }
+    })
 
     socket.on("joinRoom", ({
         name,
@@ -39,9 +58,9 @@ io.on("connection", (socket) => {
             });
         });
 
-        socket.on('sendImage',data=>{
+        socket.on('sendImage', data => {
             //广播消息,
-            io.to(room).emit('receiveImage',data);
+            io.to(room).emit('receiveImage', data);
         })
 
         socket.on("disconnect", () => {

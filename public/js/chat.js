@@ -163,7 +163,8 @@ App.prototype.listen = function () {
 };
 
 App.prototype.setRoom = function () {
-    document.querySelector(".room-name").innerHTML = this.room;
+    console.log(this.name);
+    $(".room-name").append(this.room);
 };
 
 App.prototype.setUserList = function (userList) {
@@ -210,6 +211,7 @@ App.prototype.getParams = function () {
 
     this.name = params.name;
     this.room = params.room;
+    //console.log(params, this.name);
 
     return params;
 };
@@ -223,9 +225,10 @@ window.addEventListener("keydown", function (event) {
 $('#img-upload-btn').click(function () {
     $('#img-upload').click();
 })
+/*
 $('#video-upload-btn').click(function () {
     $('#video-upload').click();
-})
+})*/
 
 
 const app = new App();

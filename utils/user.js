@@ -26,6 +26,7 @@ function getRoomUsers(room) {
 }
 
 function checkVaild(name, room) {
+    console.log('check', register_info, name, room);
     let res = register_info.findIndex(item=>{
         if (item.name == name && item.room == room){
             return true;

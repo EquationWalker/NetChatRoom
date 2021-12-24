@@ -10,34 +10,40 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-let soccet = io();
-$('.sign-in-form').on("submit", e=>{
+let socket = io();
+$('#login-btn').click(() => {
   socket.emit("login", {
-    name:$('#login-name').value,
-    room:$('#login-room').value,
+    name: $('#login-name').val(),
+    room: $('#login-room').val(),
   })
-  socket.on("loginError", d=>{
-    e.preventDefault();
-    sswal("错误", "用户名或房间名不正确!", "error");
+  socket.on("loginError", data => {
+    swal("登录错误!", data, "error");
   });
-
-  socket.on("loginOk", d=>{
-    sswal("登录成功!",  "success);
+  socket.on("loginOk", data => {
+    //alert('sdsada');
+    swal("登录成功!", data, "success");
+    $('.swal2-confirm').click(() => {
+      $('.sign-in-form').submit();
+    })
   });
 });
 
-$('.sign-up-form').on("submit", e=>{
+$('.sign-up-form').on("submit", e => {
   e.preventDefault();
-  socket.emit("regsiter", {
-    name:$('#register-name').value,
-    room:$('#register-room').value,
+  console.log("sadsadas")
+  socket.emit("register", {
+    name: $('#register-name').val(),
+    room: $('#register-room').val(),
   });
-  socket.on("registerError", data=>{
-    sswal("错误", data, "error");
+  socket.on("registerError", data => {
+    swal("注册错误", data, "error");
   });
 
-  socket.on("registerSuccess", d=>{
-    sswal("注册成功!",  "即将跳转到登录界面!", "success");
-    sign_in_btn.click();
+  socket.on("registerOk", data => {
+    swal("注册成功!", data, "success");
+    $('.swal2-confirm').click(() => {
+      sign_in_btn.click();
+    })
   });
+
 });
