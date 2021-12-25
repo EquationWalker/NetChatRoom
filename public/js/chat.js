@@ -18,11 +18,9 @@ function App() {
 }
 
 App.prototype.checkValid = function () {
-    const {name1, room1} = this.getParams();
-    this.socket.emit('login', {
-        name:name1,
-        room:room1
-    });
+    const data = this.getParams();
+    //console.log('ccc', name1, room1)
+    this.socket.emit('login', data);
     this.socket.on("loginError", e=>{
         swal('错误', '非法登录,请从登录页面登录!', 'error');
         $('.confirm').click(() => {
@@ -182,7 +180,6 @@ App.prototype.listen = function () {
 };
 
 App.prototype.setRoom = function () {
-    console.log(this.name);
     $(".room-name").append(this.room);
 };
 
@@ -235,7 +232,7 @@ App.prototype.getParams = function () {
 
     this.name = params.name;
     this.room = params.room;
-    //console.log(params, this.name);
+    console.log('getParams', params, this.name);
 
     return params;
 };

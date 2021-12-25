@@ -12,6 +12,10 @@ sign_in_btn.addEventListener("click", () => {
 
 const socket = io();
 $('#login-btn').click(() => {
+  if ($('#login-name').val()== "" || $('#login-room').val() == ""){
+    swal("警告", "房间名或用户名不能为空!", 'warning');
+    return;
+  }
   socket.emit("login", {
     name: $('#login-name').val(),
     room: $('#login-room').val(),
@@ -20,7 +24,6 @@ $('#login-btn').click(() => {
     swal("登录错误!", data, "error");
   });
   socket.on("loginOk", data => {
-    //alert('sdsada');
     swal("登录成功!", data, "success");
     $('.swal2-confirm').click(() => {
       $('.sign-in-form').submit();
@@ -30,6 +33,10 @@ $('#login-btn').click(() => {
 
 $('.sign-up-form').on("submit", e => {
   e.preventDefault();
+  if ($('#register-name').val()== "" || $('#register-room').val() == ""){
+    swal("警告", "房间名或用户名不能为空!", 'warning');
+    return;
+  }
   socket.emit("register", {
     name: $('#register-name').val(),
     room: $('#register-room').val(),
